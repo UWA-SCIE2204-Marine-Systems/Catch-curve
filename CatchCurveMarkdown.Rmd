@@ -33,7 +33,7 @@ to run the analysis you need to copy the text inside these sections and paste it
 
 Now highlight the text you just pasted and click on the run button shown in the image below:
 
-![*run*](figure/run.png){ width=25% }
+![*run*](https://github.com/UWA-SCIE2204-Marine-Systems/Catch-curve/blob/master/figure/blank.PNG){ width=25% }
 
 You have just loaded some extra software (known as packages) required for this lab. Going through the exercises below repeat this process adding to the text in the top left corner, highlighting the bit you just pasted and clicking run. The order is important, so make sure you don't skip anything. 
 

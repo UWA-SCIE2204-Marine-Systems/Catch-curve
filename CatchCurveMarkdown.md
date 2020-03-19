@@ -34,9 +34,10 @@ paste it in to the top left corner box in your ecocloud R studio
 session. Do this now for the ‘library(RCurl)’ text above.
 
 Now highlight the text you just pasted and click on the run button shown
-in the image below:
+in the image
+below:
 
-![*run*](figure/run.png)
+![*run*](https://github.com/UWA-SCIE2204-Marine-Systems/Catch-curve/blob/master/figure/blank.PNG)
 
 You have just loaded some extra software (known as packages) required
 for this lab. Going through the exercises below repeat this process
