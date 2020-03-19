@@ -3,13 +3,53 @@ Catch curve analysis
 Matt Navarro
 10/03/2020
 
+## how to use R studio
+
+By now you should have all gotten yourself logged in to an ecocloud R
+studio session and created and saved an R script called something like
+‘Catch curve.r’ in your workspace folder.
+
+If you haven’t done this you should go back nd check the instructions on
+How to use ecocloud
+<https://github.com/UWA-SCIE2204-Marine-Systems/How-to-use-ecoloud/blob/master/README.md>
+
+You should now be looking at a window similar to this:
+
+</br>
+
+![*blank*](figure/blank.png)
+
+</br>
+
+thoughout this document there wll be sections that look like this:
+
 ``` r
 library(RCurl)
 ```
 
     ## Warning: package 'RCurl' was built under R version 3.6.2
 
-## Description
+to run the analysis you need to copy the text inside these sections and
+paste it in to the top left corner box in your ecocloud R studio
+session. Do this now for the ‘library(RCurl)’ text above.
+
+Now highlight the text you just pasted and click on the run button shown
+in the image below:
+
+![*run*](figure/run.png)
+
+You have just loaded some extra software (known as packages) required
+for this lab. Going through the exercises below repeat this process
+adding to the text in the top left corner, highlighting the bit you just
+pasted and clicking run. The order is important, so make sure you don’t
+skip anything.
+
+At the end of this lab you should have built up all of the script from
+this document into the box in the top left corner. If you click the save
+button you will be able to reopen this text anytime and re-run the
+analysis by highlighting all of the script and clicking run.
+
+## Description of exercise
 
 We are going to use a linear catch curve technique to determine whether
 a stock is being overfished. The data are simulated, but are based
