@@ -9,6 +9,11 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(RCurl)
+```
+
+
 ## Description
 
 We are going to use a linear catch curve technique to determine whether a stock is being overfished. The data are simulated, but are based closely on the
@@ -45,7 +50,7 @@ and are not necessarily those of the Department.
 ## Main analysis
 ### Load the constant recruitment data and have a look
 ```{r}
-data_const=read.csv("C:/GitHub/SCIE2204/Catch curve/AgeDatWithConstRec.csv", header=T, row.names = NULL)
+data_const <- read.csv(text=getURL("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithConstRec.csv"))
 plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main=1.0, 
         xlab="Age class",ylab="Frequency", frame=F, ylim=c(0,80))
 ```
