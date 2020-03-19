@@ -13,11 +13,12 @@ If you haven’t done this you should go back nd check the instructions on
 How to use ecocloud
 <https://github.com/UWA-SCIE2204-Marine-Systems/How-to-use-ecoloud/blob/master/README.md>
 
-You should now be looking at a window similar to this:
+You should now be looking at a window similar to
+this:
 
 </br>
 
-![*blank*](figure/blank.png)
+![*blank*](https://github.com/UWA-SCIE2204-Marine-Systems/Catch-curve/blob/master/figure/blank.PNG)
 
 </br>
 
@@ -37,7 +38,7 @@ Now highlight the text you just pasted and click on the run button shown
 in the image
 below:
 
-![*run*](https://github.com/UWA-SCIE2204-Marine-Systems/Catch-curve/blob/master/figure/blank.PNG)
+![*run*](https://github.com/UWA-SCIE2204-Marine-Systems/Catch-curve/blob/master/figure/run.PNG)
 
 You have just loaded some extra software (known as packages) required
 for this lab. Going through the exercises below repeat this process
