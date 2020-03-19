@@ -5,9 +5,9 @@ Matt Navarro
 
 ## how to use R studio
 
-By now you should have all gotten yourself logged in to an ecocloud R
-studio session and created and saved an R script called something like
-‘Catch curve.r’ in your workspace folder.
+By now you should have logged into an ecocloud R studio session and
+created and saved an R script called something like ‘Catch curve.r’ in
+your workspace folder.
 
 If you haven’t done this you should go back nd check the instructions on
 How to use ecocloud
@@ -22,7 +22,7 @@ this:
 
 </br>
 
-thoughout this document there wll be sections that look like this:
+Thoughout this document there are sections that look like this:
 
 ``` r
 library(RCurl)
@@ -30,9 +30,11 @@ library(RCurl)
 
     ## Warning: package 'RCurl' was built under R version 3.6.2
 
-to run the analysis you need to copy the text inside these sections and
-paste it in to the top left corner box in your ecocloud R studio
-session. Do this now for the ‘library(RCurl)’ text above.
+To run the analysis simply copy the text inside these sections, open
+your ecocloud R studio session, and paste the text into the top left
+corner box.
+
+Do this now for the ‘library(RCurl)’ text above.
 
 Now highlight the text you just pasted and click on the run button shown
 in the image
@@ -40,16 +42,22 @@ below:
 
 ![*run*](https://github.com/UWA-SCIE2204-Marine-Systems/Catch-curve/blob/master/figure/run.PNG)
 
-You have just loaded some extra software (known as packages) required
-for this lab. Going through the exercises below repeat this process
-adding to the text in the top left corner, highlighting the bit you just
-pasted and clicking run. The order is important, so make sure you don’t
-skip anything.
+You have just loaded some extra software (known as a package) required
+for this lab.
 
-At the end of this lab you should have built up all of the script from
-this document into the box in the top left corner. If you click the save
-button you will be able to reopen this text anytime and re-run the
-analysis by highlighting all of the script and clicking run.
+Going through the exercises below repeat this process:(i) copy the text,
+open R studio, paste the text in the top left corner, highlight the text
+and click run. Don’t try too hard to understand how the code works. I am
+more interested in you following the actual analysis.
+
+The order that you eter and run the text is important, so make sure you
+don’t skip anything.
+
+At the end of the lab you should have pasted all of the script from this
+document into the box in the top left corner of your R studio session.
+If you click the save button you will be able to reopen this text
+anytime and re-run the analysis by highlighting all of the script and
+clicking run.
 
 ## Description of exercise
 
@@ -104,14 +112,40 @@ Department.
 
 ``` r
 data_const <- read.csv(text=getURL("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithConstRec.csv"))
+```
+
+The script above downloads the data set and loads it into your R studio
+session calling it ‘data\_const’. You should be able to see data\_const
+in the top right box of Rstudio.
+
+``` r
+head(data_const)
+```
+
+    ##   Age Frequency
+    ## 1   0         0
+    ## 2   1         0
+    ## 3   2         0
+    ## 4   3         2
+    ## 5   4         5
+    ## 6   5        19
+
+The head function shows you the top 6 rows of the data set. You can see
+that there are two columns in the data: (i) age and (ii) frequency. you
+should be able to see that there are no fish that are 2 years old, 5
+that are 4 years old, and 19 that are 5 years
+old.
+
+``` r
 plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main=1.0, 
         xlab="Age class",ylab="Frequency", frame=F, ylim=c(0,80))
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+the plot function you just ran shows the data on a graph of age against
+frequency.
 
-The sample consists of very few young fish. This probably means that it
-comes from a commercial or recreational fishery.
+it shows that the sample consists of very few young fish.
 
 Frequency peaks at 7 years at around 65 fish.it then trails off till
 aroud 20 and is relatively flat above age 20.
@@ -136,11 +170,15 @@ plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main
 abline(v = MinCutOff, col="red", lty=2)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
-We are also not interested in really old fish that aren’t necessarily
-kept in the fishery. We will, somewhat arbitrarily, say that we are
-interested in all ages up to the age where the frequency of fish is just
-1.
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+The code above found the peak age frequency (which we already knew was
+7) and added 1 storing the result (8) as MinCutOff. We then simply added
+a vertical line to our plot at age 8 to show where this minimum cut off
+falls in our sample.
+
+We are also not interested in really old fish that aren’t very prevalent
+in the sample. We will, somewhat arbitrarily, say that we are interested
+in all ages up to the age where the frequency of fish is just 1.
 
 ``` r
 MaxCutOff <- data_const[match( 1 , data_const$Frequency), "Age"]
@@ -149,7 +187,7 @@ plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main
 abline(v = c(MinCutOff, MaxCutOff), col="red", lty=2)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 So lets take the data sub-set and plot the
 data
@@ -160,24 +198,28 @@ plot(data_analysis$Age, data_analysis$Frequency, "o", main="Age sample data", ce
         xlab="Age class",ylab="Frequency", frame=F)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+The code above trimmed the data to only include ages 8 to 25 and called
+the trimmed data set data\_analysis. We also plotted just this subset of
+data.
 
 ### Catch curve analysis - estimating total mortality
 
-Catch curve analysis involves fitting a straight line to the agre
-frequency data. Do you think that a straight line would fit this data
-well? I don’t really think so - at age 20+ the data is more or less
+Catch curve analysis involves fitting a straight line to our subset of
+the age frequency data. Do you think that a straight line would fit this
+data well? I don’t really think so - at age 20+ the data is more or less
 flat.
 
 One option to fix this is to take a log transformation of the
-Frequency.
+frequency.
 
 ``` r
 plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data", cex.main=1.0,
-        xlab="Age class",ylab="Frequency", frame=F)
+        xlab="Age class",ylab="log of frequency", frame=F)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 That looks better\!
 
@@ -191,9 +233,12 @@ plot.
 CatchCurveModel <- lm(log(Frequency) ~ Age, data = data_analysis)
 ```
 
-We have fit a linear model to the log of frequency against Age for our
-data subset. Basically the model is fitting a straight line to the plot
-above. We can have a look at the line:
+The code above fits a linear model to the log of frequency against Age
+for our data subset. Basically it fits a straight line through the above
+plot.
+
+We can have a look at how the line fits through our data (don’t worry
+about figuring out how the code works)
 
 ``` r
 EstlnFreq <- predict(lm(log(Frequency) ~ Age, data = data_analysis))
@@ -202,7 +247,7 @@ plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data
 lines(data_analysis$Age,EstlnFreq,"l",col="blue")
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 Seems like a reasonable fit.
 
@@ -291,7 +336,9 @@ occuring, or atleast accoding to this analysis.
 
 ## variable recruitment data
 
-Lets now look at the variable recrtuitment
+Lets now look at the variable recrtuitment data. We will run fairly
+quickly through this, so don’t try and understand the code. It is more
+or less the same as the code you just used for the constant recruitment
 data.
 
 ``` r
@@ -304,12 +351,14 @@ plot(data_const$Age, data_const$Frequency, "o", main="Constant recruitment", cex
         xlab="Age class",ylab="Frequency", frame=F, ylim = c(0,130))
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
-Notice that the variable recruitment frequency plot (on the left) looks
-quite different to the constant recruitment data we have been using so
-far (on the right). Most importantly there is a huge spike in frequency
-at age 11 with around 120 individuals.
+the plot here shows the variable recruitment data on the left, and the
+constant recruitment data (from the previous section) on the right.
+
+Notice that the variable recruitment frequency data looks quite
+different to the constant recruitment data. Most importantly there is a
+huge spike in frequency at age 11 with around 120 individuals.
 
 Recruitment spikes might result from a “good year” where currents were
 favourable and/or spawning was highly successful.
@@ -327,7 +376,7 @@ plot(data_var$Age, data_var$Frequency, "o", main="Age sample data", cex.main=1.0
 abline(v = c(MinCutOff, MaxCutOff), col="red", lty=2)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 Instantly because of this recruitment spike, the minimum cut off has
 shifted to 12. It was 8 in our last analysis.
@@ -345,7 +394,7 @@ plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data
 lines(data_analysis$Age,EstlnFreq,"l",col="blue")
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 The model does not seem to fit as well as it did for the contant
 recruitment data. In particular, there seems to be an outlier at age 16.
