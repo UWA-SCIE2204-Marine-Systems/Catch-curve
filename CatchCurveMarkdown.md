@@ -3,6 +3,12 @@ Catch curve analysis
 Matt Navarro
 10/03/2020
 
+``` r
+library(RCurl)
+```
+
+    ## Warning: package 'RCurl' was built under R version 3.6.2
+
 ## Description
 
 We are going to use a linear catch curve technique to determine whether
@@ -55,12 +61,12 @@ Department.
 ### Load the constant recruitment data and have a look
 
 ``` r
-data_const=read.csv("C:/GitHub/SCIE2204/Catch curve/AgeDatWithConstRec.csv", header=T, row.names = NULL)
+data_const <- read.csv(text=getURL("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithConstRec.csv"))
 plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main=1.0, 
         xlab="Age class",ylab="Frequency", frame=F, ylim=c(0,80))
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 The sample consists of very few young fish. This probably means that it
 comes from a commercial or recreational fishery.
@@ -88,7 +94,7 @@ plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main
 abline(v = MinCutOff, col="red", lty=2)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 We are also not interested in really old fish that aren’t necessarily
 kept in the fishery. We will, somewhat arbitrarily, say that we are
 interested in all ages up to the age where the frequency of fish is just
@@ -101,7 +107,7 @@ plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main
 abline(v = c(MinCutOff, MaxCutOff), col="red", lty=2)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 So lets take the data sub-set and plot the
 data
@@ -112,7 +118,7 @@ plot(data_analysis$Age, data_analysis$Frequency, "o", main="Age sample data", ce
         xlab="Age class",ylab="Frequency", frame=F)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ### Catch curve analysis - estimating total mortality
 
@@ -129,7 +135,7 @@ plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data
         xlab="Age class",ylab="Frequency", frame=F)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 That looks better\!
 
@@ -154,7 +160,7 @@ plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data
 lines(data_analysis$Age,EstlnFreq,"l",col="blue")
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 Seems like a reasonable fit.
 
@@ -256,7 +262,7 @@ plot(data_const$Age, data_const$Frequency, "o", main="Constant recruitment", cex
         xlab="Age class",ylab="Frequency", frame=F, ylim = c(0,130))
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 Notice that the variable recruitment frequency plot (on the left) looks
 quite different to the constant recruitment data we have been using so
@@ -279,7 +285,7 @@ plot(data_var$Age, data_var$Frequency, "o", main="Age sample data", cex.main=1.0
 abline(v = c(MinCutOff, MaxCutOff), col="red", lty=2)
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 Instantly because of this recruitment spike, the minimum cut off has
 shifted to 12. It was 8 in our last analysis.
@@ -297,7 +303,7 @@ plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data
 lines(data_analysis$Age,EstlnFreq,"l",col="blue")
 ```
 
-![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](CatchCurveMarkdown_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 The model does not seem to fit as well as it did for the contant
 recruitment data. In particular, there seems to be an outlier at age 16.
