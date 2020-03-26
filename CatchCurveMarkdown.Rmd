@@ -9,7 +9,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## how to use R studio
+## How to use R studio
 
 By now you should have logged into an ecocloud R studio session and created and saved an R script called something like 'Catch curve.r' in your workspace folder. 
 

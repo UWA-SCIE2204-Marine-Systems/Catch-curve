@@ -3,7 +3,7 @@ Catch curve analysis
 Matt Navarro
 10/03/2020
 
-## how to use R studio
+## How to use R studio
 
 By now you should have logged into an ecocloud R studio session and
 created and saved an R script called something like ‘Catch curve.r’ in
