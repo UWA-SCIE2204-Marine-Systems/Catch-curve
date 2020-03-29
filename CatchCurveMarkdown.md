@@ -28,8 +28,6 @@ the blue-grey box around the text and different font):
 library(RCurl)
 ```
 
-    ## Loading required package: bitops
-
 The text in these sections is R code.
 
 To run the code simply copy the text inside these sections, go to your
@@ -68,7 +66,7 @@ all of the code and clicking run.
 ## Description of exercise
 
 We are going to use a linear catch curve technique to determine whether
-a fish stock is being overfished.
+a fish stock is subject to overfishing.
 
 The data are simulated, but are based closely on the WA Dhufish
 <http://www.fish.wa.gov.au/species/wa-dhufish/Pages/default.aspx>
@@ -77,8 +75,8 @@ This is a long lived endemic species in WA and is a key indicator
 species for the management of WA’s recreational and commercial
 fisheries.
 
-We are going to two different data sets. They each contain age frequency
-distributions of 500 fish.
+We are going to explore two different data sets. They each contain age
+frequency distributions of 500 fish.
 
 The first data sets assumes constant recruitment - this means that the
 same number of juvenile fish enter the population each year and
@@ -95,7 +93,7 @@ lectures and labs.
 
 For each data set we want to know:
 
-\-Is the stock overfished? And,
+\-Is overfishing occuring? And,
 
 \-Is our analysis reliable?
 
@@ -146,8 +144,7 @@ head(data_const)
 The head function shows you the top 5 rows of the data set. You can see
 that there are two columns in the data: (i) age and (ii) frequency. you
 should be able to see that there are no fish that are 2 years old, 5
-that are 4 years old, and 19 that are 5 years
-old.
+that are 4 years old, and 19 that are 5 years old.
 
 ``` r
 plot(data_const$Age, data_const$Frequency, "o", main="Age sample data", cex.main=1.0, 
@@ -223,8 +220,7 @@ To help us focus on just the age groups we are interested in we can take
 a data subset. The code below extracts the data for the ages we are
 interested in and creates a new data set called data\_analysis. It also
 plots this data subset providing us with a better view of the data we
-are interested
-in.
+are interested in.
 
 ``` r
 data_analysis<- data_const[ data_const$Age >= MinCutOff & data_const$Age <= MaxCutOff,  ]
@@ -251,8 +247,7 @@ frequency of 10 will become ln(10) = 2.3. Note that the log() function
 in R by default takes the natural logarithm.
 
 The code below shows what our data looks like if we plot the natural
-logarithm of frequency against
-age.
+logarithm of frequency against age.
 
 ``` r
 plot(data_analysis$Age, log(data_analysis$Frequency), "o", main="Age sample data", cex.main=1.0,
@@ -395,8 +390,7 @@ or less the same as the code you just used for the constant recruitment
 data.
 
 Firstly lets load the variable recruitment data and plot it side by side
-with the constant recruitment
-data:
+with the constant recruitment data:
 
 ``` r
 data_var <- read.csv(text=getURL("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithRecVar.csv"))
@@ -453,8 +447,7 @@ Using simluated varaible recruitment data, with a recruitment spike,
 results in the minimum cut off shifting to 12. It was 8 in our previous
 example.
 
-Lets see what happens when we fit the standard
-model.
+Lets see what happens when we fit the standard model.
 
 ``` r
 data_analysis<- data_var[ data_var$Age >= MinCutOff & data_var$Age <= MaxCutOff,  ]
@@ -501,7 +494,7 @@ F
 The fishing mortality rate is 0.08.
 
 This is less than the natural mortality rate for WA Dhufish of 0.10,
-suggesting that this population is not overfished.
+suggesting that this population is not subject to overfishing
 
 ## Some words of caution
 

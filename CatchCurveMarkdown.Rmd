@@ -55,13 +55,13 @@ At the end of the lab you should have pasted all of the code from this document 
 
 ## Description of exercise
 
-We are going to use a linear catch curve technique to determine whether a fish stock is being overfished. 
+We are going to use a linear catch curve technique to determine whether a fish stock is subject to overfishing. 
 
 The data are simulated, but are based closely on the WA Dhufish <http://www.fish.wa.gov.au/species/wa-dhufish/Pages/default.aspx>
 
 This is a long lived endemic species in WA and is a key indicator species for the management of WA's recreational and commercial fisheries. 
 
-We are going to two different data sets. They each contain age frequency distributions of 500 fish.
+We are going to explore two different data sets. They each contain age frequency distributions of 500 fish.
 
 The first data sets assumes constant recruitment - this means that the same number of juvenile fish enter the population each year and susequently the fishery. 
 
@@ -71,7 +71,7 @@ Variable recruitment is probably more realistic as recruitment for many fish spe
 
 For each data set we want to know:
 
--Is the stock overfished? And,
+-Is overfishing occuring? And,
 
 -Is our analysis reliable? 
 
@@ -311,7 +311,7 @@ F
 
 The fishing mortality rate is 0.08. 
 
-This is less than the natural mortality rate for WA Dhufish of 0.10, suggesting that this population is not overfished. 
+This is less than the natural mortality rate for WA Dhufish of 0.10, suggesting that this population is not subject to overfishing 
 
 
 ## Some words of caution
