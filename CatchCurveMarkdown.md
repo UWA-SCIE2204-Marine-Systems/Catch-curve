@@ -46,14 +46,10 @@ in the image below:
 You have just loaded extra functions into R (known as a package) that we
 need for this lab.
 
-(not using ecocloud) If you happen to be running this on R studio
-installed directly to your computer you probably just got an error about
-RCurl not being insstalled\! You need to install RCurl before you can
-load it with library. To install R Curl. (i) Click on the ‘Packages’ tab
-in the bottom left box, (ii) click install, (iii) ensure install from is
-set to Repository (Cran), (iv) type in RCurl (notice the capitalisation
-also) (v) click install. This should just take a minute and you will
-then be able to run the ‘library(RCurl)’ code to load the package.
+If you are running this on R studio installed directly to your computer
+you probably just got an error about RCurl not being installed\! To fix
+the error jump to the section below titled - “For those who got an error
+about RCurl not being installed”
 
 Going through the exercises below repeat this process: (1) **copy the
 text**, (2) Click in R script (e.g. Catch curve.R) in the top left
@@ -71,6 +67,15 @@ document into the box in the top left corner of your R studio session -
 in your R script. If you click the save button you will be able to save
 and reopen this script anytime and re-run the analysis by highlighting
 all of the code and clicking run.
+
+(For those who got an error about RCurl not being installed):
+
+You need to install RCurl before you can load it with library. To
+install R Curl. (i) Click on the ‘Packages’ tab in the bottom left box,
+(ii) click install, (iii) ensure install from is set to Repository
+(Cran), (iv) type in RCurl (notice the capitalisation also) (v) click
+install. This should just take a minute and you will then be able to run
+the ‘library(RCurl)’ code to load the package.
 
 ## Description of exercise
 
