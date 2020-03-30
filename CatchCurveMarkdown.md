@@ -9,8 +9,9 @@ By now you should have logged into an ecocloud R studio session and
 created and saved an R script called something like ‘Catch curve.r’ in
 your workspace folder.
 
-If you haven’t done this you should go back and follow the [instructions](https://github.com/UWA-SCIE2204-Marine-Systems/1-instructions/blob/master/README.md)
-
+If you haven’t done this you should go back and follow the instructions
+on “How to use ecocloud”
+<https://github.com/UWA-SCIE2204-Marine-Systems/How-to-use-ecoloud/blob/master/README.md>
 
 You should now be looking at a window similar to this:
 
