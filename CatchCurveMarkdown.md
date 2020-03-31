@@ -510,6 +510,17 @@ The fishing mortality rate is 0.08.
 This is less than the natural mortality rate for WA Dhufish of 0.10,
 suggesting that this population is not subject to overfishing
 
+## End RStudio
+
+### IMPORTANT
+
+Firstly remember to save your .R script in your workspace folder and it
+will be ready waiting for you next time you start ecocloud.
+
+Once you have finished using RStudio on ecocloud for the day, please
+Termiate your session. To do this go back to the dashboard using this
+link <https://app.ecocloud.org.au/> and click on the Terminate button.
+
 ## Some words of caution
 
 Both data sets we used were simulated and in principle have the same
