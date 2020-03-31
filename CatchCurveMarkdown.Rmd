@@ -51,6 +51,8 @@ Going through the exercises below repeat this process:
 
 Do not try too hard to understand how the code works - I will give you some notes on what the code is doing along the way. I am more interested in you learning how the actual catch curve analysis works. 
 
+Note also that you do not need to save the ouputs to fill in the quiz or any other assignment piece. The quiz is based on your understanding (broadly) of how catch-curve analysis works, NOT the results generated in this lab. 
+
 The order that you enter and run the text is important, so make sure you do not skip any sections. 
 
 At the end of the lab you should have pasted all of the code from this document into the box in the top left corner of your R studio session - in your R script. If you click the save button you will be able to save and reopen this script anytime and re-run the analysis by highlighting all of the code and clicking run. 
