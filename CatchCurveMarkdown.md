@@ -25,7 +25,7 @@ Thoughout this document there are sections that look like this (notice
 the blue-grey box around the text and different font):
 
 ``` r
-library(RCurl)
+library(readr)
 ```
 
 The text in these sections is R code.
@@ -34,9 +34,8 @@ To run the code simply copy the text inside these sections, go to your
 ecocloud RStudio session, and paste the text into the top left corner
 box.
 
-Do this now for the ‘library(RCurl)’ text above. Note: you can ignore
-any sections with \# at the start, such as the “\#\# Warning: package
-‘RCurl’ was built under R version 3.6.2”.
+Do this now for the ‘library(readr)’ text above. Note: you can ignore
+any sections with \# at the start.
 
 Now highlight the text you just pasted and click on the run button shown
 in the image below:
@@ -47,9 +46,9 @@ You have just loaded extra functions into R (known as a package) that we
 need for this lab.
 
 If you are running this on R studio installed directly to your computer
-you probably just got an error about RCurl not being installed\! To fix
+you probably just got an error about readr not being installed\! To fix
 the error jump to the section below titled - “For those who got an error
-about RCurl not being installed”
+about readr not being installed”
 
 Going through the exercises below repeat this process: (1) **copy the
 text**, (2) Click in R script (e.g. Catch curve.R) in the top left
@@ -73,14 +72,14 @@ in your R script. If you click the save button you will be able to save
 and reopen this script anytime and re-run the analysis by highlighting
 all of the code and clicking run.
 
-(For those who got an error about RCurl not being installed):
+(For those who got an error about readr not being installed):
 
-You need to install RCurl before you can load it with library. To
-install R Curl. (i) Click on the ‘Packages’ tab in the bottom left box,
+You need to install readr before you can load it with library. To
+install readr. (i) Click on the ‘Packages’ tab in the bottom left box,
 (ii) click install, (iii) ensure install from is set to Repository
-(Cran), (iv) type in RCurl (notice the capitalisation also) (v) click
+(Cran), (iv) type in readr (notice the capitalisation also) (v) click
 install. This should just take a minute and you will then be able to run
-the ‘library(RCurl)’ code to load the package.
+the ‘library(readr)’ code to load the package.
 
 ## Description of exercise
 
@@ -124,7 +123,7 @@ guys. Bit of a legend\!
 
 ### Disclaimer:
 
-The author does not warrent that the information provided is free from
+The author does not warrant that the information provided is free from
 errors or omissions. The author do not accept any form of liability, for
 the information provided, or for any consequences arising from its use
 or any reliance placed upon it. The information, opinions and advice
@@ -141,7 +140,7 @@ Department.
 ### Load the constant recruitment data and have a look
 
 ``` r
-data_const <- read.csv(text=getURL("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithConstRec.csv"))
+data_const <- as.data.frame(read_csv(url("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithConstRec.csv")))
 ```
 
 The code above downloads the data set and loads it into your R session
@@ -412,7 +411,7 @@ Firstly lets load the variable recruitment data and plot it side by side
 with the constant recruitment data:
 
 ``` r
-data_var <- read.csv(text=getURL("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithRecVar.csv"))
+data_var <- as.data.frame(read_csv(url("https://raw.githubusercontent.com/UWA-SCIE2204-Marine-Systems/Catch-curve/master/AgeDatWithRecVar.csv")))
 
 par(mfrow=c(1,2))
 plot(data_var$Age, data_var$Frequency, "o", main="Variable recruitment", cex.main=1.0, 
